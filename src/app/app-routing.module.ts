@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent},
    {path:"form",component:FormComponent},
-   {path:"update/:Id" , component:FormComponent}
+   {path:"update/:id" , component:FormComponent}
   
 ];
 

@@ -1,33 +1,30 @@
 export class EmployeeModel {
-    firstName : String;
-    lastName : String;
-    Gender: String;
+    
+    fullName : String;
+    gender: String;
     department :String;
     salary : Number;
     notes : String;
-    profilepic : String;
-    date!: Date;
-    Date: String;
-
+    profilePic : String;
+    startDate: Date;
+    
     constructor(
-        firstName: String,
-        lastName: String,
-        Gender : String,
-        Department : String,
+       fullName: String,
+        gender : String,
+        department : String,
         salary : number,
-        notes:String,
-        profiepic : String,
-        date:String
+        notes: String,
+        profiePic : String,
+        startDate: Date
     )
     {
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.Gender=Gender;
-        this.department=Department;
+        this.fullName=fullName;
+        this.gender=gender;
+        this.department=department;
         this.salary=salary;
         this.notes=notes;
-        this.profilepic=profiepic;
-        this.Date=date;
+        this.profilePic=profiePic;
+        this.startDate=startDate;
 
     }
     

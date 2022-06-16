@@ -3,23 +3,19 @@
     <form class ="form" action ="#" (ngSubmit) = "onSubmit()">
         <h3> Add Employee Details</h3>
         <div class="row-content">
-            <label class="lable-text" for="firstName"> FirstName</label>
-            <input type="text" class ="form-control" id = "firstName"
-                [(ngModel)] = "employee.firstName" name = "firstName">
+            <label class="lable-text" for="fullName">FullName</label>
+            <input type="text" class ="form-control" id = "fullName"  pattern="^[A-Z]{1}[a-zA-Z\\s]{2,}$"
+                [(ngModel)] = "employee.fullName" name = "fullName">
         </div>
     
-        <div class="row-content">
-            <label class="lable-text" for="lastName"> LastName</label>
-            <input type="text" class ="form-control" id = "lastName"
-                [(ngModel)] = "employee.lastName" name = "lastName">
-        </div>
+
         
         <div class="row-content">
             <label class="label text" for="gender">Gender</label>
             <div>
-                <input type="radio" id="male" name="gender"  value="male" [(ngModel)]="employee.Gender" required>
+                <input type="radio" id="male" name="gender"  value="male" [(ngModel)]="employee.gender" required>
                 <label class="text" for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="female" [(ngModel)]="employee.Gender" required>
+                <input type="radio" id="female" name="gender" value="female" [(ngModel)]="employee.gender" required>
                 <label class="text" for="female">Female</label>
             </div>
         </div>
@@ -30,22 +26,22 @@
             <div class="profile-radio-content">
                 <label>
                     <input type="radio" id="profile1" name="profile"
-                        value="../assets/Ellipse-1.png" required [(ngModel)]="employee.profilepic">
-                    <img class="profile" id="image1" src="../assets/Ellipse-1.png">
+                        value="../assets/Ellipse -1.png" required [(ngModel)]="employee.profilePic">
+                    <img class="profile" id="image1" src="../assets/Ellipse -1.png">
                 </label>
                 <label>
                     <input type="radio" id="profile2" name="profile"
-                        value="../assets/Ellipse-2.png" required [(ngModel)]="employee.profilepic">
-                    <img class="profile" id="image2" src="../assets/Ellipse-2.png">
+                        value="../assets/Ellipse -2.png" required [(ngModel)]="employee.profilePic">
+                    <img class="profile" id="image2" src="../assets/Ellipse -2.png">
                 </label>
                 <label>
                     <input type="radio" id="profile3" name="profile"
-                        value="../assets/Ellipse-3.png" required [(ngModel)]="employee.profilepic">
-                    <img class="profile" id="image3" src="../assets/Ellipse-3.png">
+                        value="../assets/Ellipse -3.png" required [(ngModel)]="employee.profilePic">
+                    <img class="profile" id="image3" src="../assets/Ellipse -3.png">
                 </label>
                 <label>
                     <input type="radio" id="profile4" name="profile"
-                     value="../asserts/Ellipse 1.png" required [(ngModel)]="employee.profilepic">
+                     value="../asserts/Ellipse 1.png" required [(ngModel)]="employee.profilePic">
                      <img class ="profile" id="image4" src="../assets/Ellipse 1.png">
                 </label>
             </div>
@@ -68,26 +64,27 @@
         </div>
 
         <div class="row-content">
-            <label class="label text" for="salary">Select salary here: </label>
+            <label class="label text" for="salary">Select Salary here: </label>
             <input class="input" type="range" name="salary" id="salary" min="20000" max="70000"
                 step="100" value="25000" [(ngModel)]="employee.salary">
             <output class="salary-output text" for="salary">400000</output>
         </div>
 
         <div class="row-content">
-            <label class="label text" for="StartDate">Start Date</label>
-            <input type="date" class="startDate" id="StartDate" name="date" [(ngModel)]="employee.date" required>
+            <label class="label text" for="startDate">Start Date</label>
+            <input type="date" class="startDate" id="startDate" name="date" [(ngModel)]="employee.startDate" required>
         </div>
         <div class="row-content">
             <label class="label text" for="notes">Notes</label><br>
-            <textarea id="notes" class="input" name="Notes" placeholder="Tell About yourself" style="height:50px" [(ngModel)]="employee.notes"></textarea>
+            <textarea id="notes" class="input" name="notes" placeholder="Tell About yourself" style="height:50px" [(ngModel)]="employee.notes"></textarea>
         </div>
 
         <div class="buttonParent">
-            <button class="resetButton button cancelButton" (click)="onCancel()">Cancel</button><br>
+            <button class="resetButton button cancelButton" (click)="onCancel()">Cancel</button>
             <div class="submit-reset">
-                <button type="submit" class="button submitButton" id="submitButton" >Submit</button>
-                <button type="reset" class="resetButton button">Reset</button><br>
+                <button type ="submit" class="submit" *ngIf="this.id==null" (click)="onSubmit()">Submit</button>&nbsp;&nbsp;
+                <button type="button" class= "update" *ngIf="this.id!=null" (click)="updateEmployeeById()">Update</button>&nbsp;&nbsp;
+                <button type="reset" class="resetButton button">Reset</button>
             </div>
         </div>
     </form>
